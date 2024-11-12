@@ -1,14 +1,24 @@
 import scss from "./Header.module.scss";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import logo from "../../../assets/logo.png";
 const Header = () => {
   return (
     <header className={scss.header}>
       <div className="container">
         <div className={scss.content}>
-          <img src="" alt="" />
+          <div className={scss.logo}>
+            <img src={logo} alt="" />
+          </div>
           <nav>
-            <h1>Header</h1>
+            <p>Courses</p>
+            <p>Free Workshops</p>
+            <p>Blog</p>
+            <p>About</p>
+            <p>Contact</p>
           </nav>
-          <span></span>
+          <span>
+            <AiOutlineShoppingCart />
+          </span>
         </div>
       </div>
     </header>

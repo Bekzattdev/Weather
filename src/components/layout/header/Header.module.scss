@@ -1,0 +1,22 @@
+.header {
+  background: #06060d35;
+  padding: 10px 0;
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      width: 50px;
+    }
+    nav {
+      width: 400px;
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+      align-items: center;
+    }
+    span {
+      font-size: 32px;
+    }
+  }
+}

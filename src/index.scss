@@ -9,8 +9,11 @@ a:hover {
 html {
   color-scheme: dark;
 }
-.container {
-  width: 70%;
+body {
+  width: 75%;
   margin: 0 auto;
   box-sizing: border-box;
+}
+.container {
+  padding: 0 5%;
 }

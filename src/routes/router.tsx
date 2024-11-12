@@ -6,15 +6,5 @@ export const router: ReturnType<typeof createBrowserRouter> =
     {
       path: "/",
       element: <Layout />,
-      // children: [
-      //   {
-      //     path: "/",
-      //     element: <Header />,
-      //   },
-      //   {
-      //     path: "/about",
-      //     element: <Footer />,
-      //   },
-      // ],
     },
   ]);

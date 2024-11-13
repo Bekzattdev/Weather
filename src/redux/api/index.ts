@@ -4,7 +4,7 @@ import {
   fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 
-const baseQuery = fetchBaseQuery({ baseUrl: "http://13.49.243.58/" });
+const baseQuery = fetchBaseQuery({ baseUrl: "" });
 
 const baseQueryExtended: BaseQueryFn = async (args, api, extraOptions) => {
   const result = await baseQuery(args, api, extraOptions);
@@ -16,6 +16,6 @@ export const api = createApi({
   baseQuery: baseQueryExtended,
   refetchOnReconnect: true,
   refetchOnFocus: true,
-  tagTypes: ["articles", "courses", "freeworkshops"],
+  tagTypes: [""],
   endpoints: () => ({}),
 });

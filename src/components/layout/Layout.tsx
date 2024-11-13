@@ -5,9 +5,6 @@ import LayoutSite from "../pages/LayoutSite";
 const Layout = () => {
   return (
     <div className={scss.LayoutPage}>
-      <div className={scss.scitka}>
-        <p>One week only—50% off all courses with code</p>
-      </div>
       <Header />
       <main>
         <LayoutSite />

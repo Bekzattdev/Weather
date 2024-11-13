@@ -1,24 +1,71 @@
-# Logs
-logs
-*.log
+# IDE-specific files
+.vscode/
+.idea/
+.DS_Store
+
+# Build output
+.next/
+out/
+dist/
+build/
+coverage/
+target/
+
+# Node.js dependencies
+node_modules/
+.pnp/
+.pnp.js
+
+# Package manager files
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
+.yarn/
+.yarnrc
+.yarnrc.yml
+.yarn-integrity
+
+# Environment variables
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.prod
+*.env*.local
+
+# Vercel and Turbo config
+.vercel
+.turbo
+
+# Debug and error logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+yarn/install-state.gz
 
-node_modules
-dist
-dist-ssr
-*.local
+# SSL certificates
+*.pem
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Next.js specific
+next-env.d.ts
+
+# Compilation output
+*.class
+*.jar
+
+# Unnecessary files
+Thumbs.db
+*.log
+
+# Executables and media files
+*.app
+*.exe
+*.war
+*.mp4
+*.tiff
+*.avi
+*.flv
+*.mov
+*.wmv

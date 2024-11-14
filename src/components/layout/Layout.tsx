@@ -1,13 +1,14 @@
-import Footer from "./footer/Footer";
 import scss from "./Layout.module.scss";
+import { Outlet } from "react-router-dom";
 import Header from "./header/Header";
-import LayoutSite from "../pages/LayoutSite";
+import Footer from "./footer/Footer";
+
 const Layout = () => {
   return (
-    <div className={scss.LayoutPage}>
+    <div className={scss.Layout}>
       <Header />
       <main>
-        <LayoutSite />
+        <Outlet />
       </main>
       <Footer />
     </div>

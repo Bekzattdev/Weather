@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 a {
   font-weight: 500;
   color: #c80000;
@@ -10,10 +15,15 @@ html {
   color-scheme: dark;
 }
 body {
-  width: 75%;
-  margin: 0 auto;
-  box-sizing: border-box;
+  font-family: Inter;
 }
+
 .container {
-  padding: 0 5%;
+  width: 100%;
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+::-webkit-scrollbar {
+  display: none;
 }

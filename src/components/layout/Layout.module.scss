@@ -1,9 +1,8 @@
-.LayoutPage {
+.Layout {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
+  flex-direction: column;
   min-height: 100vh;
-  background: #23233b;
   footer {
     margin-top: auto;
   }

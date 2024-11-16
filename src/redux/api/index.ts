@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_WEATHER_BASE_URL,
+  baseUrl: import.meta.env.VITE_API_BASE_URL,
 });
 
 const baseQueryExtended: BaseQueryFn = async (args, api, extraOptions) => {

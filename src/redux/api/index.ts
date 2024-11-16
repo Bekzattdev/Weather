@@ -5,7 +5,13 @@ import {
 } from "@reduxjs/toolkit/query/react";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: import.meta.env.VITE_API_BASE_URL,
+  baseUrl: `${import.meta.env.VITE_API_BASE_URL}`,
+  prepareHeaders: (headers) => {
+    if (import.meta.env.VITE_API_KEY) {
+      headers.set("Authorization", `Bearer ${import.meta.env.VITE_API_KEY}`);
+    }
+    return headers;
+  },
 });
 
 const baseQueryExtended: BaseQueryFn = async (args, api, extraOptions) => {
@@ -18,6 +24,6 @@ export const api = createApi({
   baseQuery: baseQueryExtended,
   refetchOnReconnect: true,
   refetchOnFocus: true,
-  tagTypes: [""],
+  tagTypes: ["search"],
   endpoints: () => ({}),
 });

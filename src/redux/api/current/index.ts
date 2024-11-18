@@ -1,4 +1,5 @@
 import { api as index } from "..";
+
 type GetResponse = {
   location: {
     name: string;
@@ -14,13 +15,15 @@ type GetResponse = {
     };
   };
 };
+
 type GetRequest = {
   query: string;
 };
+
 const api = index.injectEndpoints({
   endpoints: (build) => ({
     getCurrentWeather: build.query<GetResponse, GetRequest>({
-      query: (query) => ({
+      query: ({ query }) => ({
         url: "/current.json",
         method: "GET",
         params: {
@@ -28,6 +31,7 @@ const api = index.injectEndpoints({
           q: query,
         },
       }),
+      providesTags: ["current"],
     }),
   }),
 });

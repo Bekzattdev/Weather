@@ -1,0 +1,36 @@
+.CurrrentWeather {
+  .content {
+    margin-top: 400px;
+    .hero {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      .temp {
+        font-size: 80px;
+        font-weight: 500;
+      }
+      .city {
+        p {
+          font-size: 20px;
+          font-weight: 600;
+        }
+      }
+      .weather {
+        text-align: center;
+        position: relative;
+        img {
+          width: 100px;
+          object-fit: cover;
+        }
+        p {
+          font-size: 14px;
+          right: 0;
+          left: 0;
+          top: 10;
+          bottom: 10px;
+          position: absolute;
+        }
+      }
+    }
+  }
+}

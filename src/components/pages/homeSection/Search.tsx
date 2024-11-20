@@ -5,20 +5,20 @@ import TyperWriter from "../../../ui/writer/TyperWriter";
 import scss from "./Search.module.scss";
 
 type SearchProps = {
-  onCitySelect: (city: string) => void; // Коллбек для выбора города
+  onCitySelect: (city: string) => void;
 };
 
 const Search = ({ onCitySelect }: SearchProps) => {
-  const [search, setSearch] = useState<string>(""); // Поисковая строка
-  const { data, isLoading } = useGetSearchQuery(search);
+  const [search, setSearch] = useState<string>("");
+  const { data } = useGetSearchQuery(search);
+  console.log(data);
 
-  // Устанавливаем первый город из результатов, если он есть
   useEffect(() => {
     if (data && data.length > 0) {
       console.log("First city from results:", data[0].name);
-      onCitySelect(data[0].name); // Передаем первый город
+      onCitySelect(data[0].name);
     }
-  }, [data, onCitySelect]); // Эффект вызывается при обновлении data
+  }, [data, onCitySelect]);
 
   return (
     <div className={scss.Search}>
@@ -41,14 +41,13 @@ const Search = ({ onCitySelect }: SearchProps) => {
             <TyperWriter />
           </div>
           <div>
-            {isLoading && <p>Loading...</p>}
             {data && (
               <ul className={scss.results}>
                 {data.map((city) => (
                   <ol
                     key={city.id || city.name}
                     className={scss.resultItem}
-                    onClick={() => onCitySelect(city.name)} // Передаем выбранный город
+                    onClick={() => onCitySelect(city.name)}
                   >
                     {city.name}, {city.region}, {city.country}
                   </ol>

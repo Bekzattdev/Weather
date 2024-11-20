@@ -4,7 +4,7 @@ const MainPage = () => {
   return (
     <div className={scss.MainPage}>
       <div className="container">
-        <div className={scss.content}></div>
+        <div className={scss.content}>hero</div>
       </div>
     </div>
   );

@@ -1,46 +1,76 @@
+import { useState } from "react";
 import { useGetCurrentWeatherQuery } from "../../../redux/api/current";
 import scss from "./Currentweath.module.scss";
 
 type CurrentWeatherProps = {
-  city: string; // Название города для запроса
+  city: string;
 };
 
 const CurrentWeather = ({ city }: CurrentWeatherProps) => {
-  // Запрос с RTK Query, с пропуском при пустом значении `city`
-  const { data, isLoading, error } = useGetCurrentWeatherQuery(
+  const { data } = useGetCurrentWeatherQuery(
     { query: city },
     { skip: !city.trim() }
   );
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Suturday",
+  ];
+  let monthes = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Dec",
+  ];
 
-  // Логирование для проверки данных
-  console.log("City passed to CurrentWeather:", city);
-  console.log("Weather Data Response:", data);
+  const today = new Date();
+  const month = monthes[today.getMonth()];
+  const year = today.getFullYear();
+  const day = days[today.getDay()];
+  const time = today.getHours();
+  const minute = today.getMinutes();
+  const [currentDay, setCurrentDay] = useState(
+    `${time}:${minute}-${day}, ${month}`
+  );
 
-  // Условия загрузки, ошибки или пустого города
-  if (!city.trim())
-    return <p>Please select a city to see weather information.</p>;
-  if (isLoading) return <p>Loading weather data...</p>;
-  if (error) return <p>Failed to fetch weather data. Please try again.</p>;
-
-  // Рендер данных, если они успешно получены
   return (
-    <div className={scss.currrent}>
+    <div className={scss.CurrrentWeather}>
       <div className="container">
         {data?.current ? (
-          <>
-            <img
-              src={`https:${data.current.condition.icon}`} // Иконка погоды
-              alt={data.current.condition.text}
-            />
-            <div className={scss.content}>
-              <h2 className={scss.temp}>
-                <span>{data.current.temp_c}°C</span> {/* Температура */}
-              </h2>
-              <p>{data.current.condition.text}</p> {/* Описание */}
+          <div className={scss.content}>
+            <div className={scss.hero}>
+              <h1 className={scss.temp}>
+                <span>{data.current.temp_c}°</span>
+              </h1>
+              <div className={scss.city}>
+                <h2>
+                  <span>{city}</span>
+                </h2>
+                <h3>
+                  <span>{currentDay}</span>
+                </h3>
+              </div>
+              <div className={scss.weather}>
+                <img
+                  src={`https:${data.current.condition.icon}`}
+                  alt={data.current.condition.text}
+                />
+                <p>{data.current.condition.text}</p>
+              </div>
             </div>
-          </>
+          </div>
         ) : (
-          <p>No weather data available for {city}.</p>
+          <p>{city}</p>
         )}
       </div>
     </div>

@@ -1,5 +1,9 @@
 .back {
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
   height: 100vh;
-  background: url("https://wallpapercave.com/wp/wp8617064.jpg") center/cover;
+  .ras {
+    display: flex;
+    justify-content: space-between;
+  }
 }

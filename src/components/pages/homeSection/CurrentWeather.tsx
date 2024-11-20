@@ -1,5 +1,5 @@
-import { useState } from "react";
 import { useGetCurrentWeatherQuery } from "../../../redux/api/current";
+import { useGetTimeZoneQuery } from "../../../redux/api/time";
 import scss from "./Currentweath.module.scss";
 
 type CurrentWeatherProps = {
@@ -11,37 +11,26 @@ const CurrentWeather = ({ city }: CurrentWeatherProps) => {
     { query: city },
     { skip: !city.trim() }
   );
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Suturday",
-  ];
-  let monthes = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Dec",
-  ];
-
-  const today = new Date();
-  const month = monthes[today.getMonth()];
-  const year = today.getFullYear();
-  const day = days[today.getDay()];
-  const time = today.getHours();
-  const minute = today.getMinutes();
-  const [currentDay, setCurrentDay] = useState(
-    `${time}:${minute}-${day}, ${month}`
+  const { data: timeData } = useGetTimeZoneQuery(
+    { query: city },
+    { skip: !city.trim() }
   );
+
+  const formatDateTime = (timeString: string | undefined) => {
+    if (!timeString) return "Invalid time";
+    const date = new Date(timeString);
+    const options: Intl.DateTimeFormatOptions = {
+      hour: "2-digit",
+      minute: "2-digit",
+      weekday: "long",
+      day: "numeric",
+      month: "short",
+      year: "2-digit",
+    };
+    return new Intl.DateTimeFormat("en-US", options).format(date);
+  };
+
+  const formattedTime = formatDateTime(timeData?.location?.localtime);
 
   return (
     <div className={scss.CurrrentWeather}>
@@ -53,12 +42,12 @@ const CurrentWeather = ({ city }: CurrentWeatherProps) => {
                 <span>{data.current.temp_c}°</span>
               </h1>
               <div className={scss.city}>
-                <h2>
+                <h1>
                   <span>{city}</span>
-                </h2>
-                <h3>
-                  <span>{currentDay}</span>
-                </h3>
+                </h1>
+                <h4>
+                  <span>{formattedTime}</span>
+                </h4>
               </div>
               <div className={scss.weather}>
                 <img

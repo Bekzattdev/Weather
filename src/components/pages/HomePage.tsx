@@ -2,13 +2,17 @@ import { useState } from "react";
 import Search from "./homeSection/Search";
 import CurrentWeather from "./homeSection/CurrentWeather";
 import scss from "./HomePage.module.scss";
+import WeadPage from "./homeSection/WeadPage";
 
 const HomePage = () => {
   const [selectedCity, setSelectedCity] = useState<string>("");
   return (
     <div className={scss.back}>
       <Search onCitySelect={setSelectedCity} />
-      <CurrentWeather city={selectedCity} />
+      <div className={scss.ras}>
+        <CurrentWeather city={selectedCity} />
+        <WeadPage />
+      </div>
     </div>
   );
 };

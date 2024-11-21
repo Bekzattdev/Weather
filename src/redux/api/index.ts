@@ -24,6 +24,6 @@ export const api = createApi({
   baseQuery: baseQueryExtended,
   refetchOnReconnect: true,
   refetchOnFocus: true,
-  tagTypes: ["search", "current", "time"],
+  tagTypes: ["search", "current", "time", "forecast"],
   endpoints: () => ({}),
 });

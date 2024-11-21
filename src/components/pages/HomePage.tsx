@@ -6,12 +6,13 @@ import WeadPage from "./homeSection/WeadPage";
 
 const HomePage = () => {
   const [selectedCity, setSelectedCity] = useState<string>("");
+
   return (
     <div className={scss.back}>
       <Search onCitySelect={setSelectedCity} />
       <div className={scss.ras}>
         <CurrentWeather city={selectedCity} />
-        <WeadPage />
+        {selectedCity && <WeadPage city={selectedCity} />}
       </div>
     </div>
   );

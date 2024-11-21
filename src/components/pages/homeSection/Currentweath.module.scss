@@ -18,19 +18,15 @@
         }
       }
       .weather {
+        display: flex;
+        flex-direction: column;
         text-align: center;
-        position: relative;
         img {
           width: 100px;
           object-fit: cover;
         }
         p {
           font-size: 14px;
-          right: 0;
-          left: 0;
-          top: 10;
-          bottom: 10px;
-          position: absolute;
         }
       }
     }

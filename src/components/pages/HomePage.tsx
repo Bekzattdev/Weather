@@ -9,10 +9,10 @@ const HomePage = () => {
 
   return (
     <div className={scss.back}>
-      <Search onCitySelect={setSelectedCity} />
       <div className={scss.ras}>
         <CurrentWeather city={selectedCity} />
-        {selectedCity && <WeadPage city={selectedCity} />}
+        <Search onCitySelect={setSelectedCity} />
+        <WeadPage city={selectedCity} />
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ const CurrentWeather = ({ city }: CurrentWeatherProps) => {
   return (
     <div className={scss.CurrrentWeather}>
       <div className="container">
-        {data?.current ? (
+        {data?.current && (
           <div className={scss.content}>
             <div className={scss.hero}>
               <h1 className={scss.temp}>
@@ -58,8 +58,6 @@ const CurrentWeather = ({ city }: CurrentWeatherProps) => {
               </div>
             </div>
           </div>
-        ) : (
-          <p>{city}</p>
         )}
       </div>
     </div>

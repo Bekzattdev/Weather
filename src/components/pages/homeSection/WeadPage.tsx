@@ -31,7 +31,7 @@ const WeadPage = ({ city }: WeadPageProps) => {
     vertical: true,
   });
 
-  if (!data) return <p>Loading forecast...</p>;
+  if (!data) return <></>;
 
   const formatTime = (timeString: string) => {
     const date = new Date(timeString);
@@ -60,7 +60,6 @@ const WeadPage = ({ city }: WeadPageProps) => {
               )}
             </div>
           </div>
-
           <div className={scss.foot}>
             <div ref={ref2} className="keen-slider">
               {data.forecast.forecastday.map((day: any) => (

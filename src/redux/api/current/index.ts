@@ -7,6 +7,7 @@ type GetResponse = {
     tz_id: string;
   };
   current: {
+    map(arg0: (el: any) => any): unknown;
     temp_c: number;
     is_day: number;
     condition: {

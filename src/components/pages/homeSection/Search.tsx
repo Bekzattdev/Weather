@@ -11,7 +11,7 @@ type SearchProps = {
 const Search = ({ onCitySelect }: SearchProps) => {
   const [search, setSearch] = useState<string>("");
   const { data } = useGetSearchQuery(search);
-  console.log(data);
+  const [loadingLocation, setLoadingLocation] = useState(false);
 
   useEffect(() => {
     if (data && data.length > 0) {
@@ -19,6 +19,45 @@ const Search = ({ onCitySelect }: SearchProps) => {
       onCitySelect(data[0].name);
     }
   }, [data, onCitySelect]);
+
+  const handleGetLocation = () => {
+    if (!navigator.geolocation) {
+      alert("Geolocation is not supported by your browser");
+      return;
+    }
+
+    setLoadingLocation(true);
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+
+        try {
+          const response = await fetch(
+            `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`
+          );
+          const locationData = await response.json();
+
+          if (locationData && locationData.city) {
+            setSearch(locationData.city);
+            onCitySelect(locationData.city);
+          } else {
+            alert("Не удалось определить местоположение");
+          }
+        } catch (error) {
+          console.error("Ошибка при определении местоположения:", error);
+          alert("Произошла ошибка при получении местоположения.");
+        } finally {
+          setLoadingLocation(false);
+        }
+      },
+      (error) => {
+        console.error("Ошибка при доступе к геолокации:", error);
+        alert("Не удалось получить доступ к вашему местоположению.");
+        setLoadingLocation(false);
+      }
+    );
+  };
 
   return (
     <div className={scss.Search}>
@@ -31,9 +70,13 @@ const Search = ({ onCitySelect }: SearchProps) => {
               onChange={(e) => setSearch(e.target.value)}
               value={search}
             />
-            <button>
+            <button
+              className={scss.btn}
+              onClick={handleGetLocation}
+              disabled={loadingLocation}
+            >
               <span>
-                <MdMyLocation />
+                {loadingLocation ? <MdMyLocation /> : <MdMyLocation />}
               </span>
             </button>
           </div>

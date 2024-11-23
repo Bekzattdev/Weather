@@ -21,24 +21,23 @@ Weather App is a web application for retrieving current weather and forecasts fo
 
 ## Installation
 
-git clone https://github.com/Bekzattdev/Weather.git
-cd Weather
-npm install
-The app will be available at http://localhost:3000.
+- git clone https://github.com/Bekzattdev/Weather.git
+- cd Weather
+- npm install
+- The app will be available at http://localhost:3000.
 
 ## Production Build
 
-npm run build
-The built files will be located in the /dist folder.
+- npm run build
+- The built files will be located in the /dist folder.
 
 ## API
 
 The app uses an external weather API for fetching data. API configurations are stored in the .env file.
 
-Example .env file
-
-REACT_APP_WEATHER_API_KEY=your_api_key
-REACT_APP_WEATHER_API_URL=https://api.weatherapi.com/v1
+- Example .env file
+- REACT_APP_WEATHER_API_KEY=your_api_key
+- REACT_APP_WEATHER_API_URL=https://api.weatherapi.com/v1
 
 ## Highlights
 
@@ -52,8 +51,3 @@ REACT_APP_WEATHER_API_URL=https://api.weatherapi.com/v1
 - Add multi-language support (i18n).
 - Improve data visualization.
 - Implement favorite cities feature.
-
-## Author
-
-- Name: Bekzat
-- GitHub: https://github.com/Bekzattdev

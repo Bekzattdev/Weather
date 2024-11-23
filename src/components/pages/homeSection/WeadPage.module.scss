@@ -3,24 +3,26 @@
   .content {
     display: flex;
     flex-direction: column;
-    gap: 3px;
     .head {
+      background: #00000027;
       color: #ffffff;
       width: 500px;
       height: 10vh;
       border-radius: 10px 10px 0 0;
       backdrop-filter: blur(20px);
-      background: #00000027;
       .hourSlide {
         text-align: center;
       }
     }
     .foot {
+      background: #0000001c;
       color: #ffffff;
       width: 500px;
       height: 60vh;
       backdrop-filter: blur(20px);
       border-radius: 0 0 10px 10px;
+      overflow: auto;
+      padding: 20px;
       .dayForecast {
         align-items: center;
         width: 80%;

@@ -1,0 +1,31 @@
+.errorPage {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+  .content {
+    padding: 30px;
+    background: #0000008b;
+    border-radius: 10px;
+  }
+  h1 {
+    font-size: 36px;
+    color: #f82929;
+    margin-bottom: 20px;
+  }
+
+  p {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+
+  .link {
+    text-decoration: none;
+    color: #0077ff;
+    font-size: 18px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

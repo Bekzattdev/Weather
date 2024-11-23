@@ -8,7 +8,7 @@ type WeadPageProps = {
 };
 
 const WeadPage = ({ city }: WeadPageProps) => {
-  const { data } = useGetForecastQuery(
+  const { data, isLoading } = useGetForecastQuery(
     { query: city, days: 10 },
     { skip: !city.trim() }
   );
@@ -17,21 +17,14 @@ const WeadPage = ({ city }: WeadPageProps) => {
     loop: true,
     mode: "free",
     slides: {
-      perView: 3,
+      perView: 4.5,
       spacing: 15,
     },
   });
-  const [ref2] = useKeenSlider<HTMLDivElement>({
-    loop: true,
-    slides: {
-      origin: "center",
-      perView: 2,
-      spacing: 10,
-    },
-    vertical: true,
-  });
 
-  if (!data) return <></>;
+  if (isLoading || !data) {
+    return <div className={scss.load}></div>;
+  }
 
   const formatTime = (timeString: string) => {
     const date = new Date(timeString);
@@ -61,19 +54,17 @@ const WeadPage = ({ city }: WeadPageProps) => {
             </div>
           </div>
           <div className={scss.foot}>
-            <div ref={ref2} className="keen-slider">
-              {data.forecast.forecastday.map((day: any) => (
-                <div key={day.date} className={scss.dayForecast}>
-                  <img
-                    src={`https:${day.day.condition.icon}`}
-                    alt={day.day.condition.text}
-                  />
-                  <p>{day.date}</p>
-                  <div style={{ margin: "10px" }}></div>
-                  <p>{day.day.avgtemp_c}°C</p>
-                </div>
-              ))}
-            </div>
+            {data.forecast.forecastday.map((day: any) => (
+              <div key={day.date} className={scss.dayForecast}>
+                <img
+                  src={`https:${day.day.condition.icon}`}
+                  alt={day.day.condition.text}
+                />
+                <p>{day.date}</p>
+                <div style={{ margin: "10px" }}></div>
+                <p>{day.day.avgtemp_c}°C</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

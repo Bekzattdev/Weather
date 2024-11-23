@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Weather App is a web application for retrieving current weather and forecasts for a selected city. The app is built with React, TypeScript, and Redux Toolkit for state management and routing.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React** — A library for building user interfaces.
+- **TypeScript** — A strongly typed programming language for JavaScript.
+- **Redux Toolkit** — Simplified state management.
+- **React Router** — Routing for React applications.
+- **Sass (SCSS)** — Styling components.
+- **RTK Query** — For API integration.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- City search with autocomplete.
+- Retrieve current weather for a selected city.
+- View extended weather forecasts.
+- Support for geolocation to detect user location.
+- Error handling, including a 404 page.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+git clone https://github.com/Bekzattdev/Weather.git
+cd Weather
+npm install
+The app will be available at http://localhost:3000.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Production Build
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+npm run build
+The built files will be located in the /dist folder.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## API
+
+The app uses an external weather API for fetching data. API configurations are stored in the .env file.
+
+Example .env file
+
+REACT_APP_WEATHER_API_KEY=your_api_key
+REACT_APP_WEATHER_API_URL=https://api.weatherapi.com/v1
+
+## Highlights
+
+- TypeScript for safe and predictable development.
+- Modular SCSS styles for better maintainability.
+- Robust error handling for both routing and API failures.
+- Easily extendable for additional features.
+
+## Future Plans
+
+- Add multi-language support (i18n).
+- Improve data visualization.
+- Implement favorite cities feature.
+
+## Author
+
+- Name: Bekzat
+- GitHub: https://github.com/Bekzattdev

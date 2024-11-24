@@ -1,8 +1,12 @@
 .back {
   width: 90%;
   margin: 0 auto;
-  .ras {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-between;
+  .left {
+    margin-top: 35%;
+  }
+  .right {
+    margin-top: 8%;
   }
 }

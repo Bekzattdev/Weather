@@ -9,11 +9,13 @@ const HomePage = () => {
 
   return (
     <div className={scss.back}>
-      <div className={scss.left}>
+      <div className={scss.currentWeather}>
         <CurrentWeather city={selectedCity} />
       </div>
-      <Search onCitySelect={setSelectedCity} />
-      <div className={scss.right}>
+      <div className={scss.search}>
+        <Search onCitySelect={setSelectedCity} />
+      </div>
+      <div className={scss.weadPage}>
         <WeadPage city={selectedCity} />
       </div>
     </div>

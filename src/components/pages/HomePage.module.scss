@@ -3,7 +3,6 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
-
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
@@ -13,7 +12,9 @@
 
 .currentWeather {
   order: 1;
+  margin-top: 70vh;
   @media (max-width: 768px) {
+    margin-top: 0;
     order: 2;
   }
 }
@@ -26,8 +27,10 @@
 }
 
 .weadPage {
+  margin-top: 15vh;
   order: 3;
   @media (max-width: 768px) {
+    margin: 0 auto;
     order: 3;
   }
 }

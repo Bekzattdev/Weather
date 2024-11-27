@@ -1,36 +1,24 @@
-.back {
+.main {
   width: 90%;
   margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  @media (max-width: 768px) {
+  .back {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-  }
-}
+    flex-wrap: wrap;
 
-.currentWeather {
-  order: 1;
-  margin-top: 70vh;
-  @media (max-width: 768px) {
-    margin-top: 0;
-    order: 2;
-  }
-}
+    .weadPage {
+      transition: all 0.3s ease-in-out;
+      @media (max-width: 768px) {
+        order: 2;
+      }
+    }
 
-.search {
-  order: 2;
-  @media (max-width: 768px) {
-    order: 1;
-  }
-}
-
-.weadPage {
-  margin-top: 15vh;
-  order: 3;
-  @media (max-width: 768px) {
-    margin: 0 auto;
-    order: 3;
+    .currentWeather {
+      margin-top: 55vh;
+      @media (max-width: 768px) {
+        order: 2;
+      }
+    }
   }
 }

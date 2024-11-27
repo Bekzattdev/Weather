@@ -34,28 +34,26 @@ const CurrentWeather = ({ city }: CurrentWeatherProps) => {
 
   return (
     <div className={scss.CurrrentWeather}>
-      <div className="container">
+      <div className={scss.content}>
         {data?.current && (
-          <div className={scss.content}>
-            <div className={scss.hero}>
-              <h1 className={scss.temp}>
-                <span>{data.current.temp_c}°</span>
+          <div className={scss.hero}>
+            <h1 className={scss.temp}>
+              <span>{data.current.temp_c}°</span>
+            </h1>
+            <div className={scss.city}>
+              <h1>
+                <span>{city}</span>
               </h1>
-              <div className={scss.city}>
-                <h1>
-                  <span>{city}</span>
-                </h1>
-                <h4>
-                  <span>{formattedTime}</span>
-                </h4>
-              </div>
-              <div className={scss.weather}>
-                <img
-                  src={`https:${data.current.condition.icon}`}
-                  alt={data.current.condition.text}
-                />
-                <p>{data.current.condition.text}</p>
-              </div>
+              <h4>
+                <span>{formattedTime}</span>
+              </h4>
+            </div>
+            <div className={scss.weather}>
+              <img
+                src={`https:${data.current.condition.icon}`}
+                alt={data.current.condition.text}
+              />
+              <p>{data.current.condition.text}</p>
             </div>
           </div>
         )}

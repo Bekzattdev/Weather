@@ -1,32 +1,45 @@
 .CurrrentWeather {
   .content {
+    color: #fff;
+    background: rgba(3, 0, 0, 0.354);
+    border-radius: 10px;
     .hero {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
 
       .temp {
         font-size: 80px;
-        font-weight: 500;
+        font-weight: bold;
+        color: #fff;
       }
+
       .city {
         h1 {
-          font-weight: 600;
+          font-size: 28px;
+          font-weight: bold;
+          text-align: center;
         }
+
         h4 {
+          font-size: 16px;
           font-weight: 400;
+          color: rgb(255, 255, 255);
         }
       }
+
       .weather {
         display: flex;
         flex-direction: column;
-        text-align: center;
+        align-items: center;
         img {
           width: 100px;
-          object-fit: cover;
+          height: auto;
         }
+
         p {
-          font-size: 14px;
+          font-size: 18px;
+          font-weight: 500;
         }
       }
     }

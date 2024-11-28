@@ -77,6 +77,7 @@ const Search = ({ onCitySelect }: SearchProps) => {
               className={scss.btn}
               onClick={handleGetLocation}
               disabled={loadingLocation}
+              title="Title"
             >
               <span>
                 {loadingLocation ? <MdMyLocation /> : <MdMyLocation />}

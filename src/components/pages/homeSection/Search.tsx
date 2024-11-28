@@ -58,6 +58,9 @@ const Search = ({ onCitySelect }: SearchProps) => {
       }
     );
   };
+  useEffect(() => {
+    handleGetLocation();
+  }, []);
 
   return (
     <div className={scss.Search}>

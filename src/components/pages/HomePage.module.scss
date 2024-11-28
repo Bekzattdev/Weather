@@ -5,20 +5,10 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-
-    .weadPage {
-      transition: all 0.3s ease-in-out;
-      @media (max-width: 768px) {
-        order: 2;
-      }
-    }
-
-    .currentWeather {
-      margin-top: 55vh;
-      @media (max-width: 768px) {
-        order: 2;
-      }
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
     }
   }
 }

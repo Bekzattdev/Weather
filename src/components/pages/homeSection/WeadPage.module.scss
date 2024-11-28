@@ -1,26 +1,25 @@
 .WeadPage {
+  width: 530px;
+  @media (max-width: 1024px) {
+    width: 400px;
+  }
+  @media (max-width: 425px) {
+    width: 370px;
+  }
   .content {
     display: flex;
     flex-direction: column;
-    width: 500px;
     border-radius: 15px;
     overflow: hidden;
-    backdrop-filter: blur(7px);
-    @media (max-width: 1400px) {
-      width: 400px;
-    }
     .head {
       width: 100%;
+      padding: 10px 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 15px;
-      background: rgba(3, 0, 0, 0.354);
-      color: #fff;
-      height: auto;
+      background: rgba(3, 0, 0, 0.482);
       font-weight: bold;
       font-size: 18px;
-
       .hourSlide {
         text-align: center;
         color: #fff;
@@ -34,22 +33,20 @@
     .foot {
       width: 100%;
       background: rgba(0, 0, 0, 0.2);
-      color: #fff;
       height: 60vh;
-      padding: 20px;
       display: flex;
       flex-direction: column;
       overflow: auto;
-      @media (max-width: 1024px) {
-        height: 40vh;
+      @media (max-width: 768px) {
+        height: 50vh;
       }
 
       .dayForecast {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        gap: 10px;
         align-items: center;
+        gap: 10px;
         .forecastItem {
           display: flex;
           flex-direction: column;

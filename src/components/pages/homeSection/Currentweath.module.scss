@@ -1,7 +1,11 @@
 .CurrrentWeather {
+  margin-top: 55vh;
+  @media (max-width: 768px) {
+    margin-top: 3vh;
+  }
+
   .content {
     color: #fff;
-    background: rgba(3, 0, 0, 0.354);
     border-radius: 10px;
     .hero {
       display: flex;
@@ -12,6 +16,9 @@
         font-size: 80px;
         font-weight: bold;
         color: #fff;
+        @media (max-width: 425px) {
+          font-size: 60px;
+        }
       }
 
       .city {
@@ -25,6 +32,14 @@
           font-size: 16px;
           font-weight: 400;
           color: rgb(255, 255, 255);
+        }
+        @media (max-width: 425px) {
+          h1 {
+            font-size: 24px;
+          }
+          h4 {
+            font-size: 14px;
+          }
         }
       }
 
@@ -40,6 +55,14 @@
         p {
           font-size: 18px;
           font-weight: 500;
+        }
+        @media (max-width: 425px) {
+          img {
+            width: 70px;
+          }
+          p {
+            font-size: 16px;
+          }
         }
       }
     }

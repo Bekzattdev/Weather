@@ -1,6 +1,6 @@
 import { Typewriter } from "react-simple-typewriter";
 const TyperWriter = () => {
-  const wellcome: string[] = ["Wellcome to Weather site"];
+  const wellcome: string[] = ["Welcome to Weather site"];
 
   return (
     <>
